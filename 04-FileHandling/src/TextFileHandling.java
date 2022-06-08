@@ -15,20 +15,27 @@ public class TextFileHandling {
         System.out.println("File isFile() --> " + file.isFile());
         System.out.println("File isDirectory() --> " + file.isDirectory());
 
-        File file2 = new File("/Users/pavitra.m/Documents/Week4");
+        File file2 = new File("/Users/pavitra.m/Documents/Week 4");
         String[] files = file2.list();
-        for (String fileEach : files) {
-            System.out.println(fileEach);
+        if (files != null) {
+            for (String fileEach : files) {
+                System.out.println(fileEach);
+            }
+        } else {
+            System.out.println("No files found");
         }
 
+        File filenew = null;
         try {
-            File filenew = new File("/Users/pavitra.m/Downloads/aaa.txt");
+            filenew = new File("/Users/pavitra.m/Downloads/aaa.txt");
             filenew.createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println(file.mkdir() );
+        filenew.delete();
+
+        System.out.println(file.mkdir());
 
     }
 }
